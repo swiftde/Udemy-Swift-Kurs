@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KeyboardViewController" customModule="myFancyUdemyKeyboard" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DeE-cc-2Hi">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTy-Bk-UmU">
+                            <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <state key="normal" title="H">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="buchstabeGedrückt:" destination="-1" eventType="touchUpInside" id="cpj-YI-kJh"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIZ-fa-TSO">
+                            <rect key="frame" x="160" y="0.0" width="160" height="50"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <state key="normal" title="A">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="buchstabeGedrückt:" destination="-1" eventType="touchUpInside" id="d4x-cB-PaK"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGX-yp-RnT">
+                            <rect key="frame" x="0.0" y="50" width="160" height="50"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <state key="normal" title="iOS">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="nächstesKeyboard:" destination="-1" eventType="touchUpInside" id="ItP-Wu-cti"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Slw-Ri-aFR">
+                            <rect key="frame" x="160" y="50" width="160" height="50"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <state key="normal" title="&lt;--">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="löschen:" destination="-1" eventType="touchUpInside" id="tLy-UF-pHa"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Slw-Ri-aFR" secondAttribute="trailing" id="0kC-nQ-qed"/>
+                        <constraint firstItem="XTy-Bk-UmU" firstAttribute="height" secondItem="DeE-cc-2Hi" secondAttribute="height" multiplier="1:2" id="8ms-EL-74t"/>
+                        <constraint firstItem="cIZ-fa-TSO" firstAttribute="height" secondItem="DeE-cc-2Hi" secondAttribute="height" multiplier="1:2" id="Ax6-RR-SU9"/>
+                        <constraint firstItem="xGX-yp-RnT" firstAttribute="height" secondItem="DeE-cc-2Hi" secondAttribute="height" multiplier="1:2" id="BYb-cc-Rsy"/>
+                        <constraint firstAttribute="bottom" secondItem="Slw-Ri-aFR" secondAttribute="bottom" id="FTf-nq-TIW"/>
+                        <constraint firstItem="XTy-Bk-UmU" firstAttribute="top" secondItem="DeE-cc-2Hi" secondAttribute="top" id="FbU-pW-H5a"/>
+                        <constraint firstItem="Slw-Ri-aFR" firstAttribute="width" secondItem="DeE-cc-2Hi" secondAttribute="width" multiplier="1:2" id="Gyz-qc-LPu"/>
+                        <constraint firstAttribute="trailing" secondItem="cIZ-fa-TSO" secondAttribute="trailing" id="SHf-3z-56Y"/>
+                        <constraint firstItem="cIZ-fa-TSO" firstAttribute="top" secondItem="DeE-cc-2Hi" secondAttribute="top" id="WAf-cs-Nih"/>
+                        <constraint firstItem="cIZ-fa-TSO" firstAttribute="width" secondItem="DeE-cc-2Hi" secondAttribute="width" multiplier="1:2" id="afR-4G-Q70"/>
+                        <constraint firstAttribute="bottom" secondItem="xGX-yp-RnT" secondAttribute="bottom" id="dEX-gc-bu9"/>
+                        <constraint firstItem="xGX-yp-RnT" firstAttribute="leading" secondItem="DeE-cc-2Hi" secondAttribute="leading" id="fQ4-GD-QGo"/>
+                        <constraint firstItem="Slw-Ri-aFR" firstAttribute="height" secondItem="DeE-cc-2Hi" secondAttribute="height" multiplier="1:2" id="fZ6-Uq-16H"/>
+                        <constraint firstItem="xGX-yp-RnT" firstAttribute="width" secondItem="DeE-cc-2Hi" secondAttribute="width" multiplier="1:2" id="hHw-Sx-lO2"/>
+                        <constraint firstItem="XTy-Bk-UmU" firstAttribute="width" secondItem="DeE-cc-2Hi" secondAttribute="width" multiplier="1:2" id="mIV-Hu-JkU"/>
+                        <constraint firstItem="XTy-Bk-UmU" firstAttribute="leading" secondItem="DeE-cc-2Hi" secondAttribute="leading" id="t5i-YS-zdH"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="DeE-cc-2Hi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IpN-3k-dPq"/>
+                <constraint firstAttribute="trailing" secondItem="DeE-cc-2Hi" secondAttribute="trailing" id="LX4-Xb-JAa"/>
+                <constraint firstAttribute="bottom" secondItem="DeE-cc-2Hi" secondAttribute="bottom" id="aBR-g7-3DE"/>
+                <constraint firstItem="DeE-cc-2Hi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ehZ-vH-B9T"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>
