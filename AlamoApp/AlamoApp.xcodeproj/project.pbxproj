@@ -1,0 +1,550 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E307FF0B1A9E207A004A3479 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E307FF0A1A9E207A004A3479 /* AppDelegate.swift */; };
+		E307FF0E1A9E207A004A3479 /* AlamoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E307FF0C1A9E207A004A3479 /* AlamoApp.xcdatamodeld */; };
+		E307FF101A9E207A004A3479 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E307FF0F1A9E207A004A3479 /* ViewController.swift */; };
+		E307FF131A9E207A004A3479 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E307FF111A9E207A004A3479 /* Main.storyboard */; };
+		E307FF151A9E207A004A3479 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E307FF141A9E207A004A3479 /* Images.xcassets */; };
+		E307FF181A9E207A004A3479 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E307FF161A9E207A004A3479 /* LaunchScreen.xib */; };
+		E307FF241A9E207A004A3479 /* AlamoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E307FF231A9E207A004A3479 /* AlamoAppTests.swift */; };
+		E307FF3F1A9E2188004A3479 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E307FF351A9E210F004A3479 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E307FF1E1A9E207A004A3479 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E307FEFD1A9E207A004A3479 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E307FF041A9E207A004A3479;
+			remoteInfo = AlamoApp;
+		};
+		E307FF341A9E210F004A3479 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E307FF2D1A9E210E004A3479 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		E307FF361A9E210F004A3479 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E307FF2D1A9E210E004A3479 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
+		E307FF381A9E210F004A3479 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E307FF2D1A9E210E004A3479 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
+		};
+		E307FF3A1A9E210F004A3479 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E307FF2D1A9E210E004A3479 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire OSX Tests";
+		};
+		E307FF3C1A9E2159004A3479 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E307FF2D1A9E210E004A3479 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E307FF3E1A9E216E004A3479 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E307FF3F1A9E2188004A3479 /* Alamofire.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E307FF051A9E207A004A3479 /* AlamoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlamoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E307FF091A9E207A004A3479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E307FF0A1A9E207A004A3479 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E307FF0D1A9E207A004A3479 /* AlamoApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AlamoApp.xcdatamodel; sourceTree = "<group>"; };
+		E307FF0F1A9E207A004A3479 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E307FF121A9E207A004A3479 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E307FF141A9E207A004A3479 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E307FF171A9E207A004A3479 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		E307FF1D1A9E207A004A3479 /* AlamoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlamoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E307FF221A9E207A004A3479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E307FF231A9E207A004A3479 /* AlamoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoAppTests.swift; sourceTree = "<group>"; };
+		E307FF2D1A9E210E004A3479 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E307FF021A9E207A004A3479 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E307FF1A1A9E207A004A3479 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E307FEFC1A9E207A004A3479 = {
+			isa = PBXGroup;
+			children = (
+				E307FF2D1A9E210E004A3479 /* Alamofire.xcodeproj */,
+				E307FF071A9E207A004A3479 /* AlamoApp */,
+				E307FF201A9E207A004A3479 /* AlamoAppTests */,
+				E307FF061A9E207A004A3479 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E307FF061A9E207A004A3479 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E307FF051A9E207A004A3479 /* AlamoApp.app */,
+				E307FF1D1A9E207A004A3479 /* AlamoAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E307FF071A9E207A004A3479 /* AlamoApp */ = {
+			isa = PBXGroup;
+			children = (
+				E307FF0A1A9E207A004A3479 /* AppDelegate.swift */,
+				E307FF0F1A9E207A004A3479 /* ViewController.swift */,
+				E307FF111A9E207A004A3479 /* Main.storyboard */,
+				E307FF141A9E207A004A3479 /* Images.xcassets */,
+				E307FF161A9E207A004A3479 /* LaunchScreen.xib */,
+				E307FF0C1A9E207A004A3479 /* AlamoApp.xcdatamodeld */,
+				E307FF081A9E207A004A3479 /* Supporting Files */,
+			);
+			path = AlamoApp;
+			sourceTree = "<group>";
+		};
+		E307FF081A9E207A004A3479 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E307FF091A9E207A004A3479 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E307FF201A9E207A004A3479 /* AlamoAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				E307FF231A9E207A004A3479 /* AlamoAppTests.swift */,
+				E307FF211A9E207A004A3479 /* Supporting Files */,
+			);
+			path = AlamoAppTests;
+			sourceTree = "<group>";
+		};
+		E307FF211A9E207A004A3479 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E307FF221A9E207A004A3479 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E307FF2E1A9E210E004A3479 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E307FF351A9E210F004A3479 /* Alamofire.framework */,
+				E307FF371A9E210F004A3479 /* Alamofire.framework */,
+				E307FF391A9E210F004A3479 /* Alamofire iOS Tests.xctest */,
+				E307FF3B1A9E210F004A3479 /* Alamofire OSX Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E307FF041A9E207A004A3479 /* AlamoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E307FF271A9E207A004A3479 /* Build configuration list for PBXNativeTarget "AlamoApp" */;
+			buildPhases = (
+				E307FF011A9E207A004A3479 /* Sources */,
+				E307FF021A9E207A004A3479 /* Frameworks */,
+				E307FF031A9E207A004A3479 /* Resources */,
+				E307FF3E1A9E216E004A3479 /* Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E307FF3D1A9E2159004A3479 /* PBXTargetDependency */,
+			);
+			name = AlamoApp;
+			productName = AlamoApp;
+			productReference = E307FF051A9E207A004A3479 /* AlamoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E307FF1C1A9E207A004A3479 /* AlamoAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E307FF2A1A9E207A004A3479 /* Build configuration list for PBXNativeTarget "AlamoAppTests" */;
+			buildPhases = (
+				E307FF191A9E207A004A3479 /* Sources */,
+				E307FF1A1A9E207A004A3479 /* Frameworks */,
+				E307FF1B1A9E207A004A3479 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E307FF1F1A9E207A004A3479 /* PBXTargetDependency */,
+			);
+			name = AlamoAppTests;
+			productName = AlamoAppTests;
+			productReference = E307FF1D1A9E207A004A3479 /* AlamoAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E307FEFD1A9E207A004A3479 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = benchr;
+				TargetAttributes = {
+					E307FF041A9E207A004A3479 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					E307FF1C1A9E207A004A3479 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = E307FF041A9E207A004A3479;
+					};
+				};
+			};
+			buildConfigurationList = E307FF001A9E207A004A3479 /* Build configuration list for PBXProject "AlamoApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E307FEFC1A9E207A004A3479;
+			productRefGroup = E307FF061A9E207A004A3479 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E307FF2E1A9E210E004A3479 /* Products */;
+					ProjectRef = E307FF2D1A9E210E004A3479 /* Alamofire.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				E307FF041A9E207A004A3479 /* AlamoApp */,
+				E307FF1C1A9E207A004A3479 /* AlamoAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E307FF351A9E210F004A3479 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = E307FF341A9E210F004A3479 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E307FF371A9E210F004A3479 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = E307FF361A9E210F004A3479 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E307FF391A9E210F004A3479 /* Alamofire iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = E307FF381A9E210F004A3479 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E307FF3B1A9E210F004A3479 /* Alamofire OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire OSX Tests.xctest";
+			remoteRef = E307FF3A1A9E210F004A3479 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E307FF031A9E207A004A3479 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E307FF131A9E207A004A3479 /* Main.storyboard in Resources */,
+				E307FF181A9E207A004A3479 /* LaunchScreen.xib in Resources */,
+				E307FF151A9E207A004A3479 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E307FF1B1A9E207A004A3479 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E307FF011A9E207A004A3479 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E307FF101A9E207A004A3479 /* ViewController.swift in Sources */,
+				E307FF0E1A9E207A004A3479 /* AlamoApp.xcdatamodeld in Sources */,
+				E307FF0B1A9E207A004A3479 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E307FF191A9E207A004A3479 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E307FF241A9E207A004A3479 /* AlamoAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E307FF1F1A9E207A004A3479 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E307FF041A9E207A004A3479 /* AlamoApp */;
+			targetProxy = E307FF1E1A9E207A004A3479 /* PBXContainerItemProxy */;
+		};
+		E307FF3D1A9E2159004A3479 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = E307FF3C1A9E2159004A3479 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E307FF111A9E207A004A3479 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E307FF121A9E207A004A3479 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E307FF161A9E207A004A3479 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E307FF171A9E207A004A3479 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E307FF251A9E207A004A3479 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E307FF261A9E207A004A3479 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E307FF281A9E207A004A3479 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AlamoApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E307FF291A9E207A004A3479 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AlamoApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E307FF2B1A9E207A004A3479 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AlamoAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlamoApp.app/AlamoApp";
+			};
+			name = Debug;
+		};
+		E307FF2C1A9E207A004A3479 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AlamoAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlamoApp.app/AlamoApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E307FF001A9E207A004A3479 /* Build configuration list for PBXProject "AlamoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E307FF251A9E207A004A3479 /* Debug */,
+				E307FF261A9E207A004A3479 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E307FF271A9E207A004A3479 /* Build configuration list for PBXNativeTarget "AlamoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E307FF281A9E207A004A3479 /* Debug */,
+				E307FF291A9E207A004A3479 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E307FF2A1A9E207A004A3479 /* Build configuration list for PBXNativeTarget "AlamoAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E307FF2B1A9E207A004A3479 /* Debug */,
+				E307FF2C1A9E207A004A3479 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E307FF0C1A9E207A004A3479 /* AlamoApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E307FF0D1A9E207A004A3479 /* AlamoApp.xcdatamodel */,
+			);
+			currentVersion = E307FF0D1A9E207A004A3479 /* AlamoApp.xcdatamodel */;
+			path = AlamoApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E307FEFD1A9E207A004A3479 /* Project object */;
+}
