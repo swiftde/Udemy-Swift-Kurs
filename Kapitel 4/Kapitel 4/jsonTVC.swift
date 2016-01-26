@@ -40,8 +40,8 @@ class jsonTVC: UITableViewController {
         alert.addAction(UIAlertAction(title: "Abbrechen", style: .Cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Bestätigen", style: .Default) {
             action in
-            let dictionary = ["name": (alert.textFields?[0] as UITextField).text!,
-                "beschreibung": (alert.textFields?[1] as UITextField).text!]
+            let dictionary = ["name": ((alert.textFields?[0])! as UITextField).text!,
+                "beschreibung": ((alert.textFields?[1])! as UITextField).text!]
             self.daten.append(dictionary)
             self.tableView.reloadData()
             })
@@ -55,7 +55,7 @@ class jsonTVC: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell
         let name = daten[indexPath.row]["name"]!
         let beschreibung = daten[indexPath.row]["beschreibung"]!
         cell.textLabel?.text = name
@@ -74,32 +74,30 @@ class jsonTVC: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
+    override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
         return "Löschen"
     }
     
     func ladeDaten() {
         let dirs = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as [String]
         let dir = dirs.first!
-        let path = dir.stringByAppendingPathComponent("daten.json")
-        
-        let dataFromPath = NSData(contentsOfFile: path)
+        let path = NSURL(fileURLWithPath: dir).URLByAppendingPathComponent("daten.json")
+        let dataFromPath = NSData.init(contentsOfURL: path)
         
         if let data = dataFromPath {
-            
-            daten = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: nil) as [[String:String]]
+            daten = try! (NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)) as! [[String:String]]
             tableView.reloadData()
-            
         }
     }
     
     func speicherDaten() {
-        let dirs = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as [String]
-        let dir = dirs.first!
-        let path = dir.stringByAppendingPathComponent("daten.json")
         
-        var data = NSJSONSerialization.dataWithJSONObject(daten, options: .PrettyPrinted, error: nil)
+        let dir: NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first!
+        let path = dir.stringByAppendingPathComponent("daten.json")
+            
+        let data = try? NSJSONSerialization.dataWithJSONObject(daten, options: .PrettyPrinted)
         data?.writeToFile(path, atomically: true)
+        
     }
     
 }

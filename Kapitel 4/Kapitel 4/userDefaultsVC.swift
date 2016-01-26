@@ -27,7 +27,7 @@ class userDefaultsVC: UIViewController {
 
 var USERNAME: String? {
 get{
-    return NSUserDefaults.standardUserDefaults().objectForKey("username") as String?
+    return NSUserDefaults.standardUserDefaults().objectForKey("username") as! String?
 }
 set{
     if newValue != nil {

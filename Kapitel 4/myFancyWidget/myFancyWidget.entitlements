@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.BenchR.myFancyUdemyWidget</string>
+		<string>group.udemy.Kapitel4.myFancyWidget</string>
 	</array>
 </dict>
 </plist>

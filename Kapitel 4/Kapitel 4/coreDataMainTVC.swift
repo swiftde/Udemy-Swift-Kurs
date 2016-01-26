@@ -10,7 +10,7 @@ import UIKit
 
 class coreDataMainTVC: UITableViewController {
     
-    var context = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
+    var context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var daten: [Person]!
 
     override func viewDidLoad() {
@@ -28,22 +28,21 @@ class coreDataMainTVC: UITableViewController {
             textField.placeholder = "Name"
         }
         alert.addAction(UIAlertAction(title: "Abbrechen", style: .Cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Bestätigen", style: .Default) {
-            action in
-            let neuePerson = NSEntityDescription.insertNewObjectForEntityForName("Person", inManagedObjectContext: self.context) as Person
+        alert.addAction(UIAlertAction(title: "Bestätigen", style: .Default) { (action) -> Void in
+            let neuePerson = NSEntityDescription.insertNewObjectForEntityForName("Person", inManagedObjectContext: self.context) as! Person
             neuePerson.name = (alert.textFields![0] as UITextField).text
-            self.context.save(nil)
+            try! self.context.save()
             self.ladeDaten()
-            })
+            
+        })
         
         presentViewController(alert, animated: true, completion: nil)
         
     }
     
-    
     func ladeDaten() {
         let request = NSFetchRequest(entityName: "Person")
-        daten = context.executeFetchRequest(request, error: nil) as [Person]
+        daten = try! context.executeFetchRequest(request) as! [Person]
         tableView.reloadData()
     }
     
@@ -52,7 +51,7 @@ class coreDataMainTVC: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell
         cell.textLabel?.text = daten[indexPath.row].name
         return cell
     }
@@ -68,7 +67,7 @@ class coreDataMainTVC: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
+    override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
         return "Löschen"
     }
     
@@ -78,9 +77,9 @@ class coreDataMainTVC: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "detailSegue" {
-            let zielVC = segue.destinationViewController as CoreDataDetailTVC
+            let zielVC = segue.destinationViewController as! CoreDataDetailTVC
             zielVC.context = context
-            let indexPath = sender as NSIndexPath
+            let indexPath = sender as! NSIndexPath
             zielVC.person = daten[indexPath.row]
         }
     }

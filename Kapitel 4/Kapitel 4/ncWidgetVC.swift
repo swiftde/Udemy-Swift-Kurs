@@ -12,9 +12,9 @@ class ncWidgetVC: UIViewController {
 
     @IBOutlet weak var label: UILabel!
     
-    let sharedDefaults = NSUserDefaults(suiteName: "group.BenchR.myFancyUdemyWidget")
+    let sharedDefaults = NSUserDefaults(suiteName: "group.udemy.Kapitel4.myFancyWidget")
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didBecomeActive:", name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
