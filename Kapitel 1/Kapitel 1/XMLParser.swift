@@ -29,7 +29,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
             _, data, _ in
             
-            let parser = NSXMLParser(data: data)
+            let parser = NSXMLParser(data: data!)
             parser.delegate = self
             parser.parse()
         }
@@ -38,7 +38,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     var inItem = false
     var currentElement = ""
     
-    func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: [NSObject : AnyObject]!) {
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         if elementName == ITEM_TRENNER {
             daten.append([String:String]())
             inItem = true
@@ -46,7 +46,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
         currentElement = elementName
     }
     
-    func parser(parser: NSXMLParser!, foundCharacters string: String!) {
+    func parser(parser: NSXMLParser, foundCharacters string: String) {
         if inItem {
             if daten[daten.count - 1][currentElement] != nil {
                 daten[daten.count - 1][currentElement]! += string
@@ -57,13 +57,13 @@ class XMLParser: NSObject, NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
+    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == ITEM_TRENNER {
             inItem = false
         }
     }
     
-    func parserDidEndDocument(parser: NSXMLParser!) {
+    func parserDidEndDocument(parser: NSXMLParser) {
         handler(daten)
     }
 }

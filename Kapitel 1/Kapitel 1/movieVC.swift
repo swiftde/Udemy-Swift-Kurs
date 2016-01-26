@@ -45,14 +45,17 @@ class movieVC: UIViewController {
 
 class DraggableView: UIView {
     
-    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
-        let touch = touches.anyObject() as UITouch
-        let location = touch.locationInView(self.superview)
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+		var location = CGPoint()
+        for touch: AnyObject in touches {
+            location = (touch as! UITouch).locationInView(self.superview)
+        }
         UIView.beginAnimations("dragging", context: nil)
         self.center = location
         UIView.commitAnimations()
+        
     }
-    
 }
 
 

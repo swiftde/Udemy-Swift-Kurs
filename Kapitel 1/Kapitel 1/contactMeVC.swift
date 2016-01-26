@@ -21,7 +21,7 @@ class contactMeVC: UIViewController, MFMailComposeViewControllerDelegate, MFMess
         presentViewController(mailController, animated: true, completion: nil)
     }
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -33,7 +33,7 @@ class contactMeVC: UIViewController, MFMailComposeViewControllerDelegate, MFMess
         presentViewController(smsController, animated: true, completion: nil)
     }
     
-    func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     

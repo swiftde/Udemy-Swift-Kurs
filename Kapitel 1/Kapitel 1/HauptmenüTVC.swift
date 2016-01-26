@@ -66,8 +66,8 @@ class Hauptmenu_TVC: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "datenLaden" {
-            var zielViewController = segue.destinationViewController as a_synchronDatenLadenVC
-            let indexPath = tableView.indexPathForCell(sender as UITableViewCell)!
+            let zielViewController = segue.destinationViewController as! a_synchronDatenLadenVC
+            let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
             let titel = daten[indexPath.row]
             zielViewController.titel = titel
             if indexPath.row == 1 {
