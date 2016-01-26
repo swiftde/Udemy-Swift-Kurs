@@ -28,11 +28,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         updateLabel()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    	updateLabel()
+    }
+    
     func updateLabel() {
         let nummer = sharedDefaults?.integerForKey("nummer")
         label.text = "\(nummer!)"
     }
-    
     
     
     
