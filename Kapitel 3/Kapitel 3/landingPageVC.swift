@@ -21,7 +21,7 @@ class landingPageVC: UIViewController {
             images.append(UIImage(named: "bild-0\(i).jpg")!)
         }
         
-        for (index,image) in enumerate(images) {
+        for (index,image) in images.enumerate() {
             let imageView = UIImageView(image: image)
             imageView.frame = CGRectZero
             imageView.sizeToFit()
