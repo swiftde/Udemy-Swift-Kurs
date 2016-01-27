@@ -10,8 +10,6 @@ import UIKit
 import Social
 import Accounts
 
-
-
 class socialVC: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
@@ -87,40 +85,6 @@ class socialVC: UIViewController {
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @IBAction func facebookPostButtonPressed(sender: UIButton) {
         
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
@@ -138,20 +102,4 @@ class socialVC: UIViewController {
         
     }
     
-    
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

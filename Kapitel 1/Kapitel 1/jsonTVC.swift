@@ -22,9 +22,13 @@ class jsonTVC: UITableViewController {
         let URL = NSURL(string: "https://itunes.apple.com/search?country=DE&term=Apple&media=software&limit=20")!
         let request = NSURLRequest(URL: URL)
         
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
-            response, data, error in
-            if error != nil { return }
+        NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            [weak self] data, _, error in
+            
+            if let e = error {
+                print("Fehler.. (\(e))")
+                return
+            }
             
             do {
                 json = try (NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers)) as! [String: AnyObject]
@@ -39,11 +43,14 @@ class jsonTVC: UITableViewController {
                 let version = dic["version"] as! String
                 let preis = dic["formattedPrice"]as! String
                 let neueApp = App(name: name, version: version, preis: preis)
-                self.daten.append(neueApp)
-                self.tableView.reloadData()
+                self?.daten.append(neueApp)
+                dispatch_async(dispatch_get_main_queue()) {
+                    [weak self] in
+                    self?.tableView.reloadData()
+                }
+                
             }
-            
-        }
+        }.resume()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,7 +58,7 @@ class jsonTVC: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
         let aktuelleApp = daten[indexPath.row]
         let titel = "\(aktuelleApp.name) \(aktuelleApp.version)"
@@ -72,17 +79,4 @@ struct App {
     var version: String
     var preis: String
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 

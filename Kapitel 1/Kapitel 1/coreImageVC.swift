@@ -66,19 +66,3 @@ class coreImageVC: UIViewController {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

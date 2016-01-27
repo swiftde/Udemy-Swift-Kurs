@@ -26,13 +26,19 @@ class XMLParser: NSObject, NSXMLParserDelegate {
         handler = fertig
         
         let request = NSURLRequest(URL: url)
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
-            _, data, _ in
+        
+        NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, _, error in
             
-            let parser = NSXMLParser(data: data!)
+            guard let data = data where error == nil else {
+                print("Fehler... (\(error))")
+                return
+            }
+            
+            let parser = NSXMLParser(data: data)
             parser.delegate = self
             parser.parse()
-        }
+        }.resume()
     }
     
     var inItem = false
@@ -67,20 +73,3 @@ class XMLParser: NSObject, NSXMLParserDelegate {
         handler(daten)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

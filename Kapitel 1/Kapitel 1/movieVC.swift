@@ -57,17 +57,3 @@ class DraggableView: UIView {
         
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

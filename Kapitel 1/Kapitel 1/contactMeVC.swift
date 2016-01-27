@@ -37,11 +37,4 @@ class contactMeVC: UIViewController, MFMailComposeViewControllerDelegate, MFMess
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
-    
-    
-    
-    
-    
 }
-

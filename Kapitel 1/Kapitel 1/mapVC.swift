@@ -108,15 +108,3 @@ class mapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-

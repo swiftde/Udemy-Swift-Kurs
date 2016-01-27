@@ -13,7 +13,7 @@ class a_synchronDatenLadenVC: UIViewController {
     var titel: String?
     var asynchron: Bool = false
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private weak var imageView: UIImageView?
     override func viewDidLoad() {
         super.viewDidLoad()
         if let sichererTitel = titel {
@@ -37,33 +37,28 @@ class a_synchronDatenLadenVC: UIViewController {
         let URL = NSURL(string: "http://upload.wikimedia.org/wikipedia/commons/f/f5/Steve_Jobs_Headshot_2010-CROP2.jpg")!
         let datenDesBildes = NSData(contentsOfURL: URL)!
         let bild = UIImage(data: datenDesBildes)
-        imageView.image = bild
+        imageView?.image = bild
     }
     
     func ladeDasBildAsynchron() {
         let URL = NSURL(string: "http://upload.wikimedia.org/wikipedia/commons/f/f5/Steve_Jobs_Headshot_2010-CROP2.jpg")!
         let request = NSURLRequest(URL: URL)
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { response, data, error in
-            if error != nil {
-                print("Fehler....")
+        
+        NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            [weak self] data, response, error in
+            
+            if let e = error {
+                print("Fehler... (\(e))")
                 return
             }
             let bild = UIImage(data: data!)
-            self.imageView.image = bild
-        }
+            dispatch_async(dispatch_get_main_queue()) {
+                [weak self] in
+                self?.imageView?.image = bild
+            }
+            
+        }.resume()
+        
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

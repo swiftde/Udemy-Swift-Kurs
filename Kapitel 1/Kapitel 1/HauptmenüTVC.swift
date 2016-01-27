@@ -24,7 +24,7 @@ class Hauptmenu_TVC: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
         cell.textLabel?.text = daten[indexPath.row]
 
@@ -33,40 +33,36 @@ class Hauptmenu_TVC: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var identifier = ""
-        if indexPath.row == 0 || indexPath.row == 1 {
+        
+        switch indexPath.row {
+        case 0,1:
             identifier = "datenLaden"
-        }
-        else if indexPath.row == 2 {
+        case 2:
             identifier = "jsonSegue"
-        }
-        else if indexPath.row == 3 {
+        case 3:
             identifier = "xmlSegue"
-        }
-        else if indexPath.row == 4 {
+        case 4:
             identifier = "clmkSegue"
-        }
-        else if indexPath.row == 5 {
+        case 5:
             identifier = "ciSegue"
-        }
-        else if indexPath.row == 6 {
+        case 6:
             identifier = "delegateSegue"
-        }
-        else if indexPath.row == 7 {
+        case 7:
             identifier = "socialSegue"
-        }
-        else if indexPath.row == 8 {
+        case 8:
             identifier = "movieSegue"
-        }
-        else if indexPath.row == 9 {
+        case 9:
             identifier = "contactMeSegue"
+        default:
+            break
         }
         let senderCell = tableView.cellForRowAtIndexPath(indexPath)
         performSegueWithIdentifier(identifier, sender: senderCell)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "datenLaden" {
-            let zielViewController = segue.destinationViewController as! a_synchronDatenLadenVC
+        if let zielViewController = segue.destinationViewController as? a_synchronDatenLadenVC where segue.identifier == "datenLaden" {
+            
             let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
             let titel = daten[indexPath.row]
             zielViewController.titel = titel
