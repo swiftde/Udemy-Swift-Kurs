@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Kapitel 4.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>myFancyUdemyKeyboard.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>myFancyWidget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>E3D2F6E51A520FF900E36C6C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E3E0100B1A50DDAC004B20A9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E3E010231A50DDAC004B20A9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E3F3BDC21A52B986008609FF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

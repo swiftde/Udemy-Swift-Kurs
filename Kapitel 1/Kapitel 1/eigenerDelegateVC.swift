@@ -31,6 +31,7 @@ class BilderLader {
         var images = [UIImage]()
         dispatch_async(dispatch_get_global_queue(0, 0)) {
             for url in self.urls {
+                print("URL: \(url)")
                 let bildData = NSData(contentsOfURL: url)!
                 self.fertigGeladen++
                 let bild = UIImage(data: bildData)!
@@ -48,8 +49,6 @@ class BilderLader {
 
 class eigenerDelegateVC: UIViewController, BilderLaderDelegate {
 
-    
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -58,20 +57,15 @@ class eigenerDelegateVC: UIViewController, BilderLaderDelegate {
     }
     
     func lader(lader: BilderLader, fortschritt: Double) {
-        println("Fortschritt: \(fortschritt)%")
+        print("Fortschritt: \(fortschritt)%")
     }
     
     func laderIstFertig(lader: BilderLader, mitBildern bilder: [UIImage]) {
-        println("Bilder wurden fertig geladen")
+        print("Bilder wurden fertig geladen")
         dump(bilder)
     }
     
-    
-    
-    
-    
-    
-    let urls = ["http://www.android-hilfe.de/attachments/htc-one-s-forum/203695d1368768263-beispielbilder-versehentlich-geloescht-fairytail_falls.jpg", "http://www.android-hilfe.de/attachments/htc-one-s-forum/203690d1368768225-beispielbilder-versehentlich-geloescht-another_world.jpg", "http://www.android-hilfe.de/attachments/motorola-razr-razr-maxx-forum/57711d1321867244-kamera-des-razr-funktionen-beispielbilder-2011-11-18_13-11-08_620.jpg", "http://www.doktor-tacke.de/images/kategorien/Desert.jpeg", "http://www.android-hilfe.de/attachments/motorola-razr-razr-maxx-forum/66115d1327011481-kamera-des-razr-funktionen-beispielbilder-uploadfromtaptalk1327011463245.jpg", "http://www.doktor-tacke.de/images/kategorien/Chrysanthemum.jpeg", "http://www.onderka.com/wp-content/htc_diamond2_5mp_beispielbilder_12.jpg", "http://www.onderka.com/wp-content/htc_diamond2_5mp_beispielbilder_07.jpg", "http://www.doktor-tacke.de/images/kategorien/Koala.jpeg"]
+    let urls = ["http://www.android-hilfe.de/attachments/htc-one-s-forum/203695d1368768263-beispielbilder-versehentlich-geloescht-fairytail_falls.jpg", "http://www.android-hilfe.de/attachments/htc-one-s-forum/203690d1368768225-beispielbilder-versehentlich-geloescht-another_world.jpg", "http://www.android-hilfe.de/attachments/motorola-razr-razr-maxx-forum/57711d1321867244-kamera-des-razr-funktionen-beispielbilder-2011-11-18_13-11-08_620.jpg", "http://www.android-hilfe.de/attachments/motorola-razr-razr-maxx-forum/66115d1327011481-kamera-des-razr-funktionen-beispielbilder-uploadfromtaptalk1327011463245.jpg", "http://www.onderka.com/wp-content/htc_diamond2_5mp_beispielbilder_12.jpg", "http://www.onderka.com/wp-content/htc_diamond2_5mp_beispielbilder_07.jpg"]
 
 }
 

@@ -42,7 +42,7 @@ class coreImageVC: UIViewController {
         view.addSubview(slider)
         
         let dateiURL = NSBundle.mainBundle().URLForResource("bild", withExtension: "jpg")
-        ciBild = CIImage(contentsOfURL: dateiURL)
+        ciBild = CIImage(contentsOfURL: dateiURL!)!
         
         let image = blur(slider.value, image: ciBild)
         imageView.image = UIImage(CIImage: image)
@@ -61,7 +61,7 @@ class coreImageVC: UIViewController {
             kCIInputRadiusKey: radius,
             kCIInputImageKey: image
             ])
-        return filter.valueForKey(kCIOutputImageKey) as CIImage
+        return filter!.valueForKey(kCIOutputImageKey) as! CIImage
     }
 
 

@@ -29,7 +29,7 @@ class xmlTVC: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell
         
         cell.textLabel?.text = daten[indexPath.row]["title"]
         cell.detailTextLabel?.text = daten[indexPath.row]["description"]
@@ -43,8 +43,8 @@ class xmlTVC: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "xmlDetail" {
-            let zielViewController = segue.destinationViewController as xmlDetailVC
-            zielViewController.link = daten[(sender as NSIndexPath).row]["link"]
+            let zielViewController = segue.destinationViewController as! xmlDetailVC
+            zielViewController.link = daten[(sender as! NSIndexPath).row]["link"]
         }
     }
 }
@@ -65,7 +65,6 @@ class xmlDetailVC: UIViewController {
             webView.loadRequest(request)
             view.addSubview(webView)
         }
-        
     }
     
 }

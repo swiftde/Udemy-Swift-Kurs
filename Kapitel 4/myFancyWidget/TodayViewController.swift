@@ -11,7 +11,7 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     
-    let sharedDefaults = NSUserDefaults(suiteName: "group.BenchR.myFancyUdemyWidget")
+    let sharedDefaults = NSUserDefaults(suiteName: "group.udemy.Kapitel4.myFancyWidget")
     
     @IBOutlet weak var label: UILabel!
     
@@ -28,6 +28,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         updateLabel()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    	updateLabel()
+    }
+    
     func updateLabel() {
         let nummer = sharedDefaults?.integerForKey("nummer")
         label.text = "\(nummer!)"
@@ -35,8 +40,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     
     
-    
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
+    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
 
         // If an error is encountered, use NCUpdateResult.Failed

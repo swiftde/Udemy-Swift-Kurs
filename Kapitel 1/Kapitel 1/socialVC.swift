@@ -31,7 +31,7 @@ class socialVC: UIViewController {
             if success {
                 let alleAccounts = self.accountStore.accountsWithAccountType(self.twitterType)
                 if alleAccounts.count > 0 {
-                    self.twitterAccount = alleAccounts.last as ACAccount?
+                    self.twitterAccount = alleAccounts.last as! ACAccount?
                     self.ladeProfilbild()
                 }
             }
@@ -39,6 +39,7 @@ class socialVC: UIViewController {
     }
     
     func ladeProfilbild() {
+        var json = [String: AnyObject]()
         let url = NSURL(string: "https://api.twitter.com/1.1/account/verify_credentials.json")!
         
         let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, URL: url, parameters: nil)
@@ -47,9 +48,14 @@ class socialVC: UIViewController {
         request.performRequestWithHandler { data, response, error in
             
             if response.statusCode == 200 {
+                do {
+                    json = try (NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers)) as! [String: AnyObject]
+                } catch {
+                    print("Fehler in den json Daten!")
+                    return
+                }
                 
-                let json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: nil) as [String: AnyObject]
-                let bildURL = json["profile_image_url_https"] as String
+                let bildURL = json["profile_image_url_https"] as! String
                 let bildData = NSData(contentsOfURL: NSURL(string: bildURL)!)!
                 let bild = UIImage(data: bildData)
                 dispatch_async(dispatch_get_main_queue()) {
@@ -57,7 +63,7 @@ class socialVC: UIViewController {
                 }
             }
             else {
-                println("Authentifizierung fehlgeschlagen..")
+                print("Authentifizierung fehlgeschlagen..")
             }
             
         }
@@ -68,7 +74,7 @@ class socialVC: UIViewController {
         let url = NSURL(string: "https://api.twitter.com/1.1/statuses/update.json")!
         
         let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .POST, URL: url, parameters: [
-                "status": self.textField.text
+                "status": self.textField.text!
             ])
         request.account = twitterAccount
         
@@ -76,7 +82,7 @@ class socialVC: UIViewController {
             data, response, error in
             
             if response.statusCode == 200 {
-                println("Tweet wurde gesendet.")
+                print("Tweet wurde gesendet.")
             }
         }
     }
@@ -118,7 +124,7 @@ class socialVC: UIViewController {
     @IBAction func facebookPostButtonPressed(sender: UIButton) {
         
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
-            var controller = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            let controller = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             controller.setInitialText("Ich poste über meine eigene App!!! OH MEIN GOTT :O")
             let image = UIImage(named: "bild.jpg")
             controller.addImage(image)
@@ -127,7 +133,7 @@ class socialVC: UIViewController {
             presentViewController(controller, animated: true, completion: nil)
         }
         else {
-            println("Kein Facebook wurde hinterlegt.")
+            print("Kein Facebook wurde hinterlegt.")
         }
         
     }

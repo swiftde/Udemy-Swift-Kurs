@@ -40,8 +40,8 @@ class csvTVC: UITableViewController {
         alert.addAction(UIAlertAction(title: "Abbrechen", style: .Cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Bestätigen", style: .Default) {
             action in
-            let dictionary = ["name": (alert.textFields?[0] as UITextField).text!,
-                                "beschreibung": (alert.textFields?[1] as UITextField).text!]
+            let dictionary = ["name": ((alert.textFields?[0])! as UITextField).text!,
+                                "beschreibung": ((alert.textFields?[1])! as UITextField).text!]
             self.daten.append(dictionary)
             self.tableView.reloadData()
             })
@@ -55,7 +55,7 @@ class csvTVC: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell
         let name = daten[indexPath.row]["name"]!
         let beschreibung = daten[indexPath.row]["beschreibung"]!
         cell.textLabel?.text = name
@@ -74,20 +74,23 @@ class csvTVC: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
+    override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
         return "Löschen"
     }
     
     func ladeDaten() {
         let dirs = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as [String]
         let dir = dirs.first!
-        let path = dir.stringByAppendingPathComponent("daten.csv")
         
-        let dataFromPath = NSData(contentsOfFile: path)
+        // let path = dir.stringByAppendingPathComponent("daten.csv")
+        let path = NSURL(fileURLWithPath: dir).URLByAppendingPathComponent("daten.csv")
+        
+        // let dataFromPath = NSData(contentsOfFile: path)
+        let dataFromPath = NSData.init(contentsOfURL: path)
         
         if let data = dataFromPath {
             
-            var stringFromData: String = NSString(data: data, encoding: NSUTF8StringEncoding)!
+            let stringFromData: String = NSString(data: data, encoding: NSUTF8StringEncoding)! as String
             
             daten.removeAll(keepCapacity: true)
             for zeile in stringFromData.componentsSeparatedByString("\n") {
@@ -101,19 +104,25 @@ class csvTVC: UITableViewController {
     }
     
     func speicherDaten() {
-        let dirs = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as [String]
-        let dir = dirs.first!
-        let path = dir.stringByAppendingPathComponent("daten.csv")
         
-        var stringZumSpeichern = ""
-        for dic in daten {
-            let name = dic["name"]!
-            let beschreibung = dic["beschreibung"]!
-            stringZumSpeichern += "\(name),\(beschreibung)\n"
+        if let dir: NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
+            let path = dir.stringByAppendingPathComponent("daten.csv")
+            
+            var stringZumSpeichern = ""
+            for dic in daten {
+                let name = dic["name"]!
+                let beschreibung = dic["beschreibung"]!
+                stringZumSpeichern += "\(name),\(beschreibung)\n"
+            }
+            
+            do {
+            	try stringZumSpeichern.writeToFile(path, atomically: true, encoding: NSUTF8StringEncoding)
+            } catch {
+                print("Fehler beim daten.csv anlegen!")
+                return
+            }
         }
-        stringZumSpeichern.writeToFile(path, atomically: true, encoding: NSUTF8StringEncoding, error: nil)
     }
-    
 }
 
 

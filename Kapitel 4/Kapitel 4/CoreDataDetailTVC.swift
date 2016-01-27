@@ -25,7 +25,7 @@ class CoreDataDetailTVC: UITableViewController {
     func ladeDaten() {
         let request = NSFetchRequest(entityName: "Buch")
         request.predicate = NSPredicate(format: "person = %@", person)
-        daten = context.executeFetchRequest(request, error: nil) as [Buch]
+        daten = try! context.executeFetchRequest(request) as! [Buch]
         tableView.reloadData()
     }
     
@@ -40,10 +40,13 @@ class CoreDataDetailTVC: UITableViewController {
         alert.addAction(UIAlertAction(title: "Abbrechen", style: .Cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Bestätigen", style: .Default) {
             action in
-            let neuesBuch = NSEntityDescription.insertNewObjectForEntityForName("Buch", inManagedObjectContext: self.context) as Buch
+            let neuesBuch = NSEntityDescription.insertNewObjectForEntityForName("Buch", inManagedObjectContext: self.context) as! Buch
             neuesBuch.titel = (alert.textFields![0] as UITextField).text
             neuesBuch.person = self.person
-            self.context.save(nil)
+            do {
+                try self.context.save()
+            } catch _ {
+            }
             self.ladeDaten()
             })
         
@@ -56,7 +59,7 @@ class CoreDataDetailTVC: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell
         cell.textLabel?.text = daten[indexPath.row].titel
         return cell
     }

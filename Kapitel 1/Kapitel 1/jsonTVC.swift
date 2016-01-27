@@ -18,23 +18,31 @@ class jsonTVC: UITableViewController {
     }
     
     func ladeDaten() {
+        var json = [String: AnyObject]()
         let URL = NSURL(string: "https://itunes.apple.com/search?country=DE&term=Apple&media=software&limit=20")!
         let request = NSURLRequest(URL: URL)
+        
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
             response, data, error in
             if error != nil { return }
             
-            let json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: nil) as [String: AnyObject]
+            do {
+                json = try (NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers)) as! [String: AnyObject]
+            } catch {
+                print("Fehler in den json Daten!")
+                return
+            }
             
-            let results = json["results"] as [[String: AnyObject]]
+            let results = json["results"] as! [[String: AnyObject]]
             for dic in results {
-                let name = dic["trackCensoredName"] as String
-                let version = dic["version"] as String
-                let preis = dic["formattedPrice"] as String
+                let name = dic["trackCensoredName"] as! String
+                let version = dic["version"] as! String
+                let preis = dic["formattedPrice"]as! String
                 let neueApp = App(name: name, version: version, preis: preis)
                 self.daten.append(neueApp)
                 self.tableView.reloadData()
             }
+            
         }
     }
     
@@ -43,7 +51,7 @@ class jsonTVC: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell
         
         let aktuelleApp = daten[indexPath.row]
         let titel = "\(aktuelleApp.name) \(aktuelleApp.version)"

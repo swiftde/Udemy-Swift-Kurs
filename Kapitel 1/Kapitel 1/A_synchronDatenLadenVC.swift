@@ -45,10 +45,10 @@ class a_synchronDatenLadenVC: UIViewController {
         let request = NSURLRequest(URL: URL)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { response, data, error in
             if error != nil {
-                println("Fehler....")
+                print("Fehler....")
                 return
             }
-            let bild = UIImage(data: data)
+            let bild = UIImage(data: data!)
             self.imageView.image = bild
         }
     }
